@@ -19,13 +19,13 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name cloudresume -d '$web' -s frontend/
+            az storage blob upload-batch --account-name myazureresume2024 --auth-mode key -d '$web' -s .
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
         azcliversion: 2.0.72
         inlineScript: |
-           az cdn endpoint purge --content-paths  "/*" --profile-name cloudresumecdn --name cloudresume --resource-group cloudresume
+           az cdn endpoint purge --content-paths  "/*" --profile-name tutorial --name shubs-resume --resource-group azureresume
 
   # Azure logout 
     - name: logout
