@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:            
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: azure/login@v1
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -17,13 +17,11 @@ jobs:
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name myazureresume2024 --auth-mode key -d '$web' -s . --connection-string 'DefaultEndpointsProtocol=https;AccountName=myazureresume2024;AccountKey=avzqWlMo4RiHaHRaVNKGeZiYjKnRUyvPb16TECWMSoinsN2ggSfgz80cuk2sjc8/WYxyjs4iC/6j+AStGsOBQQ==;EndpointSuffix=core.windows.net'
+            az storage blob upload-batch --account-name myazureresume2024 --auth-mode key -d '$web' -s . 
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
            az cdn endpoint purge --content-paths  "/*" --profile-name tutorial --name shubs-resume --resource-group azureresume
 
