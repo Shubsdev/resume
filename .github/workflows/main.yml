@@ -19,7 +19,7 @@ jobs:
       with:
         azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch --account-name myazureresume2024 --auth-mode key -d '$web' -s . --connection-string 'DefaultEndpointsProtocol=https;AccountName=myazureresume2024;AccountKey=avzqWlMo4RiHaHRaVNKGeZiYjKnRUyvPb16TECWMSoinsN2ggSfgz80cuk2sjc8/WYxyjs4iC/6j+AStGsOBQQ==;EndpointSuffix=core.windows.net' --overwrite
+            az storage blob upload-batch --account-name myazureresume2024 --auth-mode key -d '$web' -s . --connection-string 'DefaultEndpointsProtocol=https;AccountName=myazureresume2024;AccountKey=avzqWlMo4RiHaHRaVNKGeZiYjKnRUyvPb16TECWMSoinsN2ggSfgz80cuk2sjc8/WYxyjs4iC/6j+AStGsOBQQ==;EndpointSuffix=core.windows.net'
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
